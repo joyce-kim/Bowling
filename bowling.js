@@ -19,6 +19,12 @@ function Bowling() {
 	};
 	
 	this.returnScore = function() {
+		
+		if (this.scores.length < 20) {
+			console.log('Not enough throws!');
+			return;
+		}
+
 		var totalScore = 0;
 		// holds index of the start of each new frame
 		var startIndex = 0;
@@ -48,10 +54,15 @@ function Bowling() {
 			//iterate to next frame
 			startIndex += 2;
 		}
-
+		console.log(totalScore);
 		return totalScore;
 	}
 
 };
+
+// examples
+var game = new Bowling();
+game.throwAll([4,6,7,3,1,0,7,0,0,0,0,5,0,0,0,0,2,0,0,4]);
+game.returnScore();
 
 module.exports = Bowling;
